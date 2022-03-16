@@ -4,13 +4,31 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
+use App\Trait\HasUuid;
 
 class Account extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuid;
+
     public $table = "accounts";
-    protected $fillable = ['f_name','l_name','dob','phone','email','address','hobby','gender','country'];
+
+    protected $fillable = [
+        'f_name','l_name','dob','phone','email','address','hobby','gender','country'
+    ];
+
     public function sethobbyattribute($value){
         $this->attributes['hobby']=implode(',' , $value);
     }
+
+    protected $primaryKey = 'id';
+
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
+    
+
+
 }

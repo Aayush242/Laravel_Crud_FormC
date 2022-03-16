@@ -26,8 +26,7 @@
                 <table class="table table-bordered shadow text-center table-striped">
                     <tr>
                         <th>S.No</th>
-                        <th>f_Name</th>
-                        <th>l_Name</th>
+                        <th>Full Name</th>
                         <!-- <th>DOB</th> -->
                         <th>Phone</th>
                         <th>Email</th>
@@ -40,8 +39,7 @@
                     @foreach ($accounts as $account)
                 <tr>
                     <td>{{ $account->id }}</td>
-                    <td>{{ $account->f_name }}</td>
-                    <td>{{ $account->l_name }}</td>
+                    <td>{{ $account->f_name }} {{ $account->l_name }}</td>
                     <!-- <td>{{ $account->dob }}</td> -->
                     <td>{{ $account->phone }}</td>
                     <td>{{ $account->email }}</td>

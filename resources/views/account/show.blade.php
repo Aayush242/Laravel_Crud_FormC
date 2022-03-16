@@ -5,6 +5,7 @@
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
                         <h2>Person's Details</h2>
+                        <a class="btn btn-primary" href="{{ route('account.index') }}">Back</a>
                     </div>
                     <div class="pull-right">
                         <!-- <a class="btn btn-primary" href="{{ route('account.index') }}" enctype="multipart/form-data">Show all records</a> -->
@@ -16,7 +17,8 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <form action="{{ route('account.update',$account->id) }}" method="POST" enctype="multipart/form-data">
+           
+            {!!Form::model($account,['route' => ['account.update' , $account->id] ] , ['method'=>'POST' , 'enctype'=>'multipart/form-data'])!!}
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -74,7 +76,7 @@
                 </div>
             </form>
             <form action="{{ route('account.destroy',$account->id) }}" method="Post">
-                            <a class="btn btn-primary" href="{{ route('account.index') }}">Back</a>
+                           
                             <a class="btn btn-warning" href="{{ route('account.edit',$account->id) }}">Edit</a>
                             @csrf
                             @method('DELETE')
