@@ -5,10 +5,10 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>Edit Person's Details</h2>
+                        <h2>Edit Project Details</h2>
                     </div>
                     <div class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('account.index') }}" enctype="multipart/form-data"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('project.index') }}" enctype="multipart/form-data"> Back</a>
                     </div>
                 </div>
             </div>
@@ -17,13 +17,15 @@
                     {{ session('status') }}
                 </div>
             @endif
-           
-            {!!Form::model($account,['route' => ['account.update' , $account->id] ] , ['method'=>'POST' , 'enctype'=>'multipart/form-data'])!!}
+            
+             <!-- <form action="{{ route('project.update',$project->id) }}" method="POST" enctype="multipart/form-data"> -->
+             {!!Form::model($project,['route' => ['project.update' , $project->id] ] , ['method'=>'POST' , 'enctype'=>'multipart/form-data'])!!}
 
                 @csrf
                 @method('PUT')
-                @include('account.form_c')
+                @include('project.form')
                 {!! Form::close() !!}
-            <!-- </form> -->
+                <!-- </form> -->
+
         </div>
 @endsection
