@@ -25,7 +25,6 @@
             @endif
                 <table class="table table-bordered shadow text-center table-striped">
                     <tr>
-                        <th>S.No</th>
                         <th>Name</th>
                     <!--<th>DOB</th> -->
                         <th>Email</th>
@@ -35,7 +34,6 @@
                     </tr>         
                     @foreach ($projects as $project)
                 <tr>
-                    <td>{{ $project->id }}</td>
                     <td>{{ $project->f_name }}</td>
                     <td>{{ $project->email }}</td>
                     <td>{{ $project->as_date }}</td>

@@ -21,7 +21,7 @@ class ProjectController extends Controller
     public function __construct(ProjectRepositoryInterface $project)
     {
         $this->projectR = $project;
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     public function index()

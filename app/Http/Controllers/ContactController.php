@@ -21,7 +21,7 @@ class ContactController extends Controller
     public function __construct(ContactRepositoryInterface $contact)
     {
         $this->contactR = $contact;
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     public function index()
@@ -48,6 +48,13 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $request->validate([
+            'f_name' => 'required',
+            'phone' => 'required',
+            // 'age' => 'required',
+            'email' => 'required',
+        ]);
         $contact = new contact;
         $fields = $request->all();
         $this->contactR->create($fields);

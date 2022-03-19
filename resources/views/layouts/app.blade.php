@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -32,6 +33,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @if (Auth::check())
+                        
+
                     <ul class="navbar-nav me-auto">
 
                     <li class="nav-item">
@@ -48,6 +52,8 @@
                     </li>
 
                     </ul>
+
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -71,15 +77,21 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    
+                                    <a class="dropdown-item" href="{{route('profile.show',Auth::user()->id)}}"> Profile </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+
+                                    
                                 </div>
                             </li>
                         @endguest

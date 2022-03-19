@@ -21,7 +21,6 @@ class AccountController extends Controller
     public function __construct(AccountRepositoryInterface $account)
     {
         $this->accountR = $account;
-        $this->middleware('auth');
     }
 
     public function index()
@@ -48,6 +47,7 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
+        
         $account = new account;
         $fields = $request->all();
         $this->accountR->create($fields);

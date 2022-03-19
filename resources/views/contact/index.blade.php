@@ -25,7 +25,6 @@
             @endif
                 <table class="table table-bordered shadow text-center table-striped">
                     <tr>
-                        <th>S.No</th>
                         <th>Name</th>
                         <!-- <th>DOB</th> -->
                         <th>Phone</th>
@@ -38,7 +37,6 @@
                     </tr>         
                     @foreach ($contacts as $contact)
                 <tr>
-                    <td>{{ $contact->id }}</td>
                     <td>{{ $contact->f_name }}</td>
                     <!-- <td>{{ $contact->dob }}</td> -->
                     <td>{{ $contact->phone }}</td>
