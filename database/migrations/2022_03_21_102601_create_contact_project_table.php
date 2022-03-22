@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
-            // $table->id(); before uuid
-            $table->uuid('id')->primary();
-            $table->timestamps();
-            $table->string("f_name");
-            $table->string("phone");
-            $table->string("email");
+        Schema::create('contact_project', function (Blueprint $table) {
+            $table->id();
+            $table->char('contact_id');
+            $table->char('project_id');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('contact_project');
     }
 };

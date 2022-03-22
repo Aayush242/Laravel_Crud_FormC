@@ -37,10 +37,22 @@
                             <strong>Email: {{$contact->email}}</strong>
                         </div>
                     </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <br>
+                            @foreach ($contact->account as $l_name)
+                            <strong> Last name: 
+                                {{$l_name->l_name}}</strong>
+                            @endforeach 
+                        </div>
+                    </div>
+
                 </div>
             </form>
             <form action="{{ route('contact.destroy',$contact->id) }}" method="Post">
-                           
+                <br>
+                    
                             <a class="btn btn-warning" href="{{ route('contact.edit',$contact->id) }}">Edit</a>
                             @csrf
                             @method('DELETE')

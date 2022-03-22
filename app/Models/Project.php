@@ -26,4 +26,10 @@ class Project extends Model
 
     public $incrementing = false;
 
+    public function contacts()
+        {
+            return $this->hasOne(Contact::class);
+        }
+    
+
 }

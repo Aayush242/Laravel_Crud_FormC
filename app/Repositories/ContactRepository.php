@@ -3,6 +3,7 @@
 namespace App\Repositories;
 use App\Models\Contact;
 use App\Interfaces\ContactRepositoryInterface;
+use App\Models\Project;
 
 
     class ContactRepository implements ContactRepositoryInterface
@@ -16,6 +17,16 @@ use App\Interfaces\ContactRepositoryInterface;
         public function create($data)
         {
             Contact::create($data);
+            // {
+
+            //     $project = Project::first();
+            
+            //     $contacts = Contact::with('projects')->first();
+            
+            //     $contacts->projects()->attach($project);
+            
+            // }
+            
         }
 
         public function find($id) 

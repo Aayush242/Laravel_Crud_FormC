@@ -29,7 +29,7 @@
                         <!-- <th>DOB</th> -->
                         <th>Phone</th>
                         <th>Email</th>
-                        <!-- <th>Address</th> -->
+                        <th>Account related To </th>
                         <!-- <th>Hobby</th> -->
                         <!-- <th>Gender</th> -->
                         <!-- <th>Country</th> -->
@@ -41,7 +41,13 @@
                     <!-- <td>{{ $contact->dob }}</td> -->
                     <td>{{ $contact->phone }}</td>
                     <td>{{ $contact->email }}</td>
-                    <!-- <td>{{ $contact->address }}</td> -->
+                    
+                   <td> @foreach ($contact->account as $f_name)
+                            <strong> 
+                            {{$f_name->f_name}} {{$f_name->l_name}}</strong>
+                        @endforeach 
+                   </td>
+
                     <!-- <td>{{ $contact->hobby }}</td> -->
                     <!-- <td>{{ $contact->gender }}</td> -->
                     <!-- <td>{{ $contact->country }}</td> -->

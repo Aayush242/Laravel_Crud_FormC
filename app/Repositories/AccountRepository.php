@@ -3,7 +3,7 @@
 namespace App\Repositories;
 use App\Models\Account;
 use App\Interfaces\AccountRepositoryInterface;
-
+use App\Models\Contact;
 
     class AccountRepository implements AccountRepositoryInterface
     {
@@ -16,6 +16,16 @@ use App\Interfaces\AccountRepositoryInterface;
         public function create($data)
         {
             Account::create($data);
+            {
+
+                $contact = Contact::first();
+            
+                $accounts = Account::with('contacts')->first();
+            
+                $accounts->contacts()->attach($contact);
+            
+            }
+            
         }
 
         public function find($id) 

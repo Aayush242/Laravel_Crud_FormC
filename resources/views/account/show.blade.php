@@ -73,6 +73,16 @@
                             <strong>Country: {{$account->country}}</strong>
                         </div>
                     </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            @foreach ($account->contacts as $phone)
+                            <strong>Contact Alternative Phone no:
+                                {{$phone->phone}}</strong>
+                            @endforeach 
+                        </div>
+                    </div>
+                    
                 </div>
             </form>
             <form action="{{ route('account.destroy',$account->id) }}" method="Post">

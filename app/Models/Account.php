@@ -27,8 +27,14 @@ class Account extends Model
     protected $keyType = 'string';
 
     public $incrementing = false;
-
-    
-
+/**
+         * The roles that belong to the Account
+         *
+         * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+         */
+        public function contacts()
+        {
+            return $this->belongsToMany(Contact::class);
+        }
 
 }

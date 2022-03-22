@@ -32,3 +32,10 @@ Route::resource('/contact',ContactController::class)->middleware('auth');
 Route::resource('/project',ProjectController::class)->middleware('auth');
 
 Route::resource('profile',UserController::class)->middleware('auth');
+
+// Route::resource('contact', function (){
+    
+//     $accounts = Account::with('contacts')->first();
+
+//     $accounts->contact()->attach();
+// });
