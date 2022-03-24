@@ -6,6 +6,7 @@ namespace App\Providers;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\API\SetDataController;
 
 use Illuminate\Support\ServiceProvider;
 

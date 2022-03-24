@@ -26,6 +26,18 @@
                             </div>
                         </div>
                     </div>
+
+                    @php
+                        $contactt = DB::table('accounts')->select('id', 'f_name')->get();
+
+                    @endphp
+
+                    {{-- <div class="form-group"> --}}
+                    {{-- {!! Form::label('account_select', 'Account Name') !!}
+                    {!! Form::select('account_select', $contactt, ['f_name'=>'Aayush'], ['class'=>'form-control']); !!} --}}
+                    {{-- {!!Form::select('contactt', $contactt, ['id' => 'f_name']);!!} --}}
+
+                    {{-- </div> --}}
                     
                     <div class="col-xs-12 col-sm-12 col-md-12 my-2">
                         <!-- <button type="submit" class="btn btn-primary ml-3">Submit</button> -->

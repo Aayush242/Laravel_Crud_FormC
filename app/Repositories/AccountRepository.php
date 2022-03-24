@@ -15,7 +15,7 @@ use App\Models\Contact;
 
         public function create($data)
         {
-            Account::create($data);
+           Account::create($data);
             {
 
                 $contact = Contact::first();
@@ -25,7 +25,7 @@ use App\Models\Contact;
                 $accounts->contacts()->attach($contact);
             
             }
-            
+            return($data);
         }
 
         public function find($id) 
@@ -34,6 +34,7 @@ use App\Models\Contact;
             return $account;
         }
 
+        
         public function update($id, $data)
         {
             $input = $data->all();
@@ -41,9 +42,19 @@ use App\Models\Contact;
             $account->fill($input)->save();
         }
 
+        public function update2($id, $input)
+        {
+            // $input = $input->all();
+            $account = Account::find($id);
+            // $account->fill($input)->save();
+            $updated_data= $account->update($input);
+
+        }
+
         public function delete($id)
         {
-            return Account::find($id)->delete();
+            $account = Account::find($id);
+            $account->delete($id);
         }
         
     }

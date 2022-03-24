@@ -23,10 +23,10 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-                <table class="table table-bordered shadow text-center table-striped">
+                <table class="table table-bordered shadow text-center table-striped table-hover ">
                     <tr>
                         <th>Name</th>
-                    <!--<th>DOB</th> -->
+                        <th>Account Related To</th>
                         <th>Email</th>
                         <th>Assigning Date</th>
                         <th>Deadline</th>
@@ -35,6 +35,11 @@
                     @foreach ($projects as $project)
                 <tr>
                     <td>{{ $project->f_name }}</td>
+                    <td>
+                        @foreach ($project->contacts as $f_name)
+                        <strong>{{$f_name->f_name}}</strong>
+                        @endforeach
+                    </td>
                     <td>{{ $project->email }}</td>
                     <td>{{ $project->as_date }}</td>
                     <td>{{ $project->deadline }}</td>

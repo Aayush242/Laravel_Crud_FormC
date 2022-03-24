@@ -36,19 +36,18 @@
                     @if (Auth::check())
                         
 
-                    <ul class="navbar-nav me-auto">
-
-                    <li class="nav-item">
-                         <a class="nav-link" href="/account">Account</a>
+                        <ul class="nav nav-tabs border border-hover" id="myTab" role="tablist">
+                            <li class="nav-item ">
+                              <a class="nav-link " id="home-tab" data-toggle="tab"  href="/account" role="tab" aria-controls="home" aria-selected="true" >Account</a>
                     </li>
 
                     <li class="nav-item">
-                         <a class="nav-link" href="/contact">Contact</a>
+                         <a class="nav-link" id="profile-tab" data-toggle="tab"  href="/contact" role="tab" aria-controls="profile" aria-selected="false">Contact</a>
                     </li>
 
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="/project">Project</a>
+                        <a class="nav-link " href="/project">Project</a>
                     </li>
 
                     </ul>
