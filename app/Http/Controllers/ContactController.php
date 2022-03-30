@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Interfaces\ContactRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -27,7 +28,7 @@ class ContactController extends Controller
     public function index()
     {
         //$contacts = Contact::orderby('id','asc')->paginate(); before Repo
-        return view('contact.index',['contacts' => $this->contactR->all()]);
+        return view('contact.index', ['accounts' => DB::table('accounts')->paginate(5)], ['contacts' => $this->contactR->all()]);
     }
 
     /**

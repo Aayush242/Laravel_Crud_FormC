@@ -29,8 +29,9 @@ class SetDataController extends Controller
 
     public function index(Request $request){
         $input = $request->input_request;
-        $data = $this->modelRepo->all();
-        return json_encode($data);
+        $data = $this->modelRepo->all($input);
+        $model_name = $request->module_name;
+        return json_encode(["Model Name" => $model_name, "Data Requested" => $data]);
     }
 
     /**
@@ -41,8 +42,9 @@ class SetDataController extends Controller
     public function create(Request $request)
     {
         $input = $request->input_request;
-        $data = $this->modelRepo->create($input);
-        return json_encode($data);
+        $model_name = $request->module_name;
+        $field = $this->modelRepo->create($input);
+        return json_encode(["Model Name" => $model_name, "Created Data" => $field]);
 
     }
 
@@ -67,8 +69,10 @@ class SetDataController extends Controller
     {
         $input = $request->input_request;
         $show_data = $this->modelRepo;
+        $model_name = $request->module_name;
         $val= $show_data->find($input['id']);
-        return json_encode($val);
+        $return_data = [["Model Name" => $model_name], ["name" => "Name", "value" => [$val['f_name']." ".$val['l_name']]], ["name" => "DOB", "value" => $val['dob']], ["name" => "Gender", "value" => $val['gender']],  ["name" => "Phone No.", "value" => $val['phone']], ["name" => "E-mail", "value" => $val['email']], ["name" => "Address", "value" => $val['address']],  ["name" => "Hobby", "value" => $val['hobby']], ["name" => "Country", "value" => $val['country']] ];
+        return json_encode($return_data);
     }
 
     /**
@@ -91,14 +95,15 @@ class SetDataController extends Controller
      */
     public function update2(Request $request)
     {
-        $input = $request->input_request;
+        $input = collect($request->input_request);
         $req_id = $request->id;
-        $update_data = $this->modelRepo->update2($req_id,$input);
+        $model_name = $request->module_name;
+        $update_data = $this->modelRepo->update($req_id,$input);
 
         // after updating show data
         $show_data = $this->modelRepo;
         $val= $show_data->find($req_id);
-        return json_encode($val);
+        return json_encode(["Model Name" => $model_name, "Show Data" => $val]);
     }
 
     /**
@@ -111,6 +116,9 @@ class SetDataController extends Controller
     {
         $input = $request->input_request;
         $delete_data = $this->modelRepo;
-        $delete_data->delete($input['id']);   
+        $model_name = $request->module_name;
+
+        $val = $delete_data->delete($input['id']);   
+        return json_encode(["Model Name" => $model_name, "Action" => $val]);
     }
 }

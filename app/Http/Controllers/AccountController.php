@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Account;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Interfaces\AccountRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
 {
@@ -26,7 +28,13 @@ class AccountController extends Controller
     public function index()
     {
         //$accounts = Account::orderby('id','asc')->paginate(); before Repo
-        return view('account.index',['accounts' => $this->accountR->all()]);
+        $fields = false;
+
+        // $field =  [
+        //     'id','f_name','l_name','dob','phone','email','address','hobby','gender'
+        // ];
+    
+        return view('account.index', ['accounts' => $this->accountR->all('*')]);
     }
 
     /**

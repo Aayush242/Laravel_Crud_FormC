@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,10 @@ Route::resource('/contact',ContactController::class)->middleware('auth');
 Route::resource('/project',ProjectController::class)->middleware('auth');
 
 Route::resource('profile',UserController::class)->middleware('auth');
+
+//Route For Socialtite..
+Route::get('login/{provider}',[SocialController::class, 'redirect'] );
+Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
 
 // Route::resource('contact', function (){
     

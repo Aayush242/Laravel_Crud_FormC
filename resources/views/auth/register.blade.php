@@ -60,7 +60,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
+                        
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -68,6 +68,15 @@
                                 </button>
                             </div>
                         </div>
+
+                        <p style="text-align: center">OR</p>
+
+                        <div class="col-md-12 text-center">
+                         
+                            <a href="{{ url('/login/google') }}" class="btn btn-warning btn-block "><i class="fa-brands fa-google"></i> Login with Google</a>
+                            <a href="{{ url('/login/github') }}" class="btn btn-dark btn-block"><i class="fa-brands fa-github"></i> Login with Github</a>
+                        </div>
+
                     </form>
                 </div>
             </div>

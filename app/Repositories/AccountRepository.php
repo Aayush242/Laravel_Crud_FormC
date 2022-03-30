@@ -4,18 +4,20 @@ namespace App\Repositories;
 use App\Models\Account;
 use App\Interfaces\AccountRepositoryInterface;
 use App\Models\Contact;
+use Illuminate\Support\Facades\DB;
 
     class AccountRepository implements AccountRepositoryInterface
     {
-        public function all()
+        public function all($fields)
         {
-            $accounts = Account::all();
+            $accounts = Account::all($fields);
             return $accounts;
         }
 
+
         public function create($data)
         {
-           Account::create($data);
+          $val = Account::create($data);
             {
 
                 $contact = Contact::first();
@@ -25,7 +27,7 @@ use App\Models\Contact;
                 $accounts->contacts()->attach($contact);
             
             }
-            return($data);
+            return($val);
         }
 
         public function find($id) 
@@ -42,19 +44,21 @@ use App\Models\Contact;
             $account->fill($input)->save();
         }
 
-        public function update2($id, $input)
-        {
-            // $input = $input->all();
-            $account = Account::find($id);
-            // $account->fill($input)->save();
-            $updated_data= $account->update($input);
+        // public function update2($id, $input)
+        // {
+        //     // $input = $input->all();
+        //     $account = Account::find($id);
+        //     // $account->fill($input)->save();
+        //     $updated_data= $account->update($input);
 
-        }
+        // }
 
         public function delete($id)
         {
             $account = Account::find($id);
-            $account->delete($id);
+            $val = $account->delete($id);
+            return ("Deleted");
+
         }
         
     }

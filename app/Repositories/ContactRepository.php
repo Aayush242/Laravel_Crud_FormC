@@ -4,6 +4,7 @@ namespace App\Repositories;
 use App\Models\Contact;
 use App\Interfaces\ContactRepositoryInterface;
 use App\Models\Project;
+use Illuminate\Support\Facades\DB;
 
 
     class ContactRepository implements ContactRepositoryInterface

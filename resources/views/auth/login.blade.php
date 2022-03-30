@@ -11,6 +11,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
+
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
@@ -51,9 +52,9 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success px-3">
                                     {{ __('Login') }}
                                 </button>
 
@@ -63,7 +64,17 @@
                                     </a>
                                 @endif
                             </div>
-                        </div>
+                        
+
+                        <p style="text-align: center">OR</p>
+
+                            <div class="col-md-12 text-center">
+                             
+                                <a href="{{ url('/login/google') }}" class="btn btn-warning btn-block "><i class="fa-brands fa-google"></i> Login with Google</a>
+                                <a href="{{ url('/login/github') }}" class="btn btn-dark btn-block"><i class="fa-brands fa-github"></i> Login with Github</a>
+                            </div>
+
+
                     </form>
                 </div>
             </div>

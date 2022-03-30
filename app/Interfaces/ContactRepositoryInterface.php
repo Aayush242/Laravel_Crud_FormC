@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Interfaces;
+use Illuminate\Support\Facades\DB;
 
 
 use App\Models\Contact;

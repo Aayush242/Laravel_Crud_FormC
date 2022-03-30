@@ -100,10 +100,17 @@
                         </div>
                     </div>
                     
-                    @php
-                        $contact = DB::table('accounts')->get();
+                    {{-- @php
+                        $contacts = DB::table('contacts')->select('id', 'f_name')->where('id','0cba5a17-b2a7-485e-ac11-e84571a0a7a1')->get();
+                        Form::select('contacts', [$contacts->id => $contacts->f_name], $contacts,['class'=>'form-control']); 
+                    @endphp --}}
+
+                   
+                    
                         
-                    @endphp
+                    
+                        
+                   
                    
                     <div class="col-xs-12 col-sm-12 col-md-12 my-2">
                         <!-- <button type="submit" class="btn btn-primary ml-3">Submit</button> -->
