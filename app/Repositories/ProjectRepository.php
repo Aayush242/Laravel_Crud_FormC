@@ -15,7 +15,8 @@ use App\Interfaces\ProjectRepositoryInterface;
 
         public function create($data)
         {
-            Project::create($data);
+           $val= Project::create($data);
+           return $val;
         }
 
         public function find($id) 

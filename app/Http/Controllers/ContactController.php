@@ -28,7 +28,7 @@ class ContactController extends Controller
     public function index()
     {
         //$contacts = Contact::orderby('id','asc')->paginate(); before Repo
-        return view('contact.index', ['accounts' => DB::table('accounts')->paginate(5)], ['contacts' => $this->contactR->all()]);
+        return view('contact.index', ['contacts' => $this->contactR->all()]);
     }
 
     /**

@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 use App\Trait\HasUuid;
+use App\Trait\Relation;
 
 class Account extends Model
 {
-    use HasFactory, HasUuid;
+    use HasFactory, HasUuid, Relation;
 
     public $table = "accounts";
 
@@ -38,3 +39,4 @@ class Account extends Model
         }
 
 }
+

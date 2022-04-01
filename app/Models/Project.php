@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 use App\Trait\HasUuid;
+use App\Trait\Relation;
 
 class Project extends Model
 {
-    use HasFactory, HasUuid;
+    use HasFactory, HasUuid, Relation;
 
     public $table = "projects";
 

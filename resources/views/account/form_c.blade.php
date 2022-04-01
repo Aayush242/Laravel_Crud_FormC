@@ -100,17 +100,20 @@
                         </div>
                     </div>
                     
-                    {{-- @php
-                        $contacts = DB::table('contacts')->select('id', 'f_name')->where('id','0cba5a17-b2a7-485e-ac11-e84571a0a7a1')->get();
-                        Form::select('contacts', [$contacts->id => $contacts->f_name], $contacts,['class'=>'form-control']); 
-                    @endphp --}}
+                    @php
+                        $contacts = DB::table('contacts')->select('id', 'f_name')->get();
+                    @endphp
 
-                   
-                    
-                        
-                    
-                        
-                   
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Relation with: </label>
+                        <div class="col-sm-5">
+                            <select name="Contact_id"> 
+                                @foreach ($contacts as $contact )
+                                    <option value="{{$val=$contact->id}}">{{$contact->f_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                    
                     <div class="col-xs-12 col-sm-12 col-md-12 my-2">
                         <!-- <button type="submit" class="btn btn-primary ml-3">Submit</button> -->

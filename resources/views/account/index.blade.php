@@ -3,9 +3,9 @@
 @section('content')
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
+    <div class="row justify-content-center ">
+        <div class="col-md-12 ">
+            <div class="card py-4">
                 <div class="container mt-2">
                     <div class="row">
                         <div class="col-lg-12 margin-tb">
@@ -43,8 +43,7 @@
                     <td>{{ $account->email }}</td>
 
 
-
-                    <td> @foreach ($account->contacts as $name)     
+                    <td> @foreach ($account->contacts as $name)    
                               <strong>  {{$name->f_name}} </strong>
                         @endforeach  
                     </td> 
@@ -66,15 +65,17 @@
         
         </table>
             
-           
-                 {{-- <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                        {{$accounts->links()}}
-                    </li>
-                </ul>  --}}
+           {{-- <div class = 'text-center pt-3'>
+                {{$accounts->render()}}
+           </div> --}}
+{{-- 
+           <style>
+               .w-5{
+                   display: none;
+               }
+           </style> --}}
 
            
-            </div>
         </div>
     </div>
 </div>

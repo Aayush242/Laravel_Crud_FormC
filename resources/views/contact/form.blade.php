@@ -26,18 +26,20 @@
                             </div>
                         </div>
                     </div>
-
                     @php
-                        $contactt = DB::table('accounts')->select('id', 'f_name')->get();
+                    $accounts = DB::table('accounts')->select('id', 'f_name')->get();
+                @endphp
 
-                    @endphp
-
-                    {{-- <div class="form-group"> --}}
-                    {{-- {!! Form::label('account_select', 'Account Name') !!}
-                    {!! Form::select('account_select', $contactt, ['f_name'=>'Aayush'], ['class'=>'form-control']); !!} --}}
-                    {{-- {!!Form::select('contactt', $contactt, ['id' => 'f_name']);!!} --}}
-
-                    {{-- </div> --}}
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Relation with: </label>
+                    <div class="col-sm-5">
+                        <select name="Account_id"> 
+                            @foreach ($accounts as $account )
+                                <option value="{{$val=$account->id}}">{{$account->f_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
                     
                     <div class="col-xs-12 col-sm-12 col-md-12 my-2">
                         <!-- <button type="submit" class="btn btn-primary ml-3">Submit</button> -->

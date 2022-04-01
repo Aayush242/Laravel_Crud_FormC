@@ -18,15 +18,15 @@ use Illuminate\Support\Facades\DB;
         public function create($data)
         {
           $val = Account::create($data);
-            {
+            // {
 
-                $contact = Contact::first();
+            //     $contact = Contact::first();
             
-                $accounts = Account::with('contacts')->first();
+            //     $accounts = Account::with('contacts')->first();
             
-                $accounts->contacts()->attach($contact);
+            //     $accounts->contacts()->attach($contact);
             
-            }
+            // }
             return($val);
         }
 

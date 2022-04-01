@@ -29,12 +29,13 @@ class AccountController extends Controller
     {
         //$accounts = Account::orderby('id','asc')->paginate(); before Repo
         $fields = false;
+        $account = DB::table('accounts')->simplepaginate(5);
 
         // $field =  [
         //     'id','f_name','l_name','dob','phone','email','address','hobby','gender'
         // ];
     
-        return view('account.index', ['accounts' => $this->accountR->all('*')]);
+        return view('account.index',  ['accounts' => $this->accountR->all('*')]);
     }
 
     /**

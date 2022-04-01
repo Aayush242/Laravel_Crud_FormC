@@ -30,7 +30,7 @@
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Account related To </th>
-                        <!-- <th>Hobby</th> -->
+                        <th>Project Assigned from: </th>
                         <!-- <th>Gender</th> -->
                         <!-- <th>Country</th> -->
                         <th width="280px">Action</th>
@@ -47,6 +47,11 @@
                             {{$f_name->f_name}} {{$f_name->l_name}}</strong>
                         @endforeach 
                    </td>
+                   <td> @foreach ($contact->projects as $f_name)
+                        <strong> 
+                            {{$f_name->f_name}}</strong>
+                        @endforeach 
+                    </td>
 
                     <!-- <td>{{ $contact->hobby }}</td> -->
                     <!-- <td>{{ $contact->gender }}</td> -->

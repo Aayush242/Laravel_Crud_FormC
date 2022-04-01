@@ -77,7 +77,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Contact Alternative Phone no:
-                            @foreach ($account->contacts as $phone)
+                            @foreach ($account->contact as $phone)
                                 {{$phone->phone}}</strong>
                             @endforeach 
                         </div>
