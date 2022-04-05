@@ -24,9 +24,10 @@ class ApiLoginController extends Controller
             'email'=>$request->email,
             'password'=>bcrypt($request->password)
         ]);
-        $access_token_example = $user->createToken('PassportExample@Section.io')->access_token;
+        $access_token_example = $user->createToken('NewTokenRegister')->access_token;
         //return the access token we generated in the above step
-        return response()->json(['token'=>$access_token_example],200);
+        $response =['token' => $access_token_example];
+        return response($access_token_example, 200);
     }
 
     /**
@@ -39,10 +40,10 @@ class ApiLoginController extends Controller
         ];
         if(auth()->attempt($login_credentials)){
             //generate the token for the user
-            $user_login_token= auth()->user()->createToken('PassportExample@Section.io')->accessToken;
+            $user_login_token= auth()->user()->createToken('NewTokenLogin')->accessToken;
 
             //now return this token on success login attempt
-            return response()->json(['token' => $user_login_token['token']], 200);
+            return response()->json(['token' => $user_login_token], 200);
         }
         else{
             //wrong login credentials, return, user not authorised to our system, return error code 401

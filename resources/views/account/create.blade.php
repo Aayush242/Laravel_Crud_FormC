@@ -21,6 +21,13 @@
                 {!!Form::open(['route' => 'account.store'] , ['method'=>'POST' , 'enctype'=>'multipart/form-data'])!!}
                 @csrf
                 @include('account.form_c')
+                <div class="col-xs-12 col-sm-12 col-md-12 my-2">
+                    <div class="d-none">
+                    <select name="abc" ><option value="null">None</option></select>
+                </div>
+                    <!-- <button type="submit" class="btn btn-primary ml-3">Submit</button> -->            
+                    {!!Form::submit('Submit' , ['class'=>'btn btn-primary ml-3']);!!}
+                </div>
                 {!! Form::close() !!}
             
 @endsection

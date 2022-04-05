@@ -20,26 +20,47 @@ trait Relation{
             $model_name = class_basename($model);   
             $model_id = $model->getkey();
 
+            // dd(request()->all());
             //data of the selected field
-            $fieldarr = array_keys(request()->all());  
+            $fieldarr = array_keys(request()->all()); 
+            $relation_with = array_slice($fieldarr, -2, 1);
+            // dd($relation_with);
+            // dd($relation_with);
             $field = last($fieldarr);
-            $relation_name = trim($field, "_id");
-            $field_lower = Str::lower($field);
+            $relation_name = trim($relation_with[0], "_id");
+            
+            $field_lower = Str::lower($relation_with[0]);
+
+            // dd($field_lower);
+            // dd($field_lower);
             
             //recieve data from config file
             $value = (config('relationship.'.$model_name.'.'.$relation_name.'.relation_with'));
             $relation_check = (config('relationship.'.$model_name.'.'.$relation_name.'.pivot'));
+            // dd($relation_with);
             $relationship_check = (config('relationship.'.$model_name.'.'.$relation_name.'.check_relation'));
-            
-            //checking if relation occurs
-            if(DB::table($relation_check)
+
+           if(request()->all($field) != "null"){
+                if(DB::table($relation_check)
                 ->where($field_lower, request()->all($field))
                 ->where($relationship_check, $model_id)
-                ->count() < 1){
-                 //requesting all data
-                $val = request()->all($field);
-                //relation attach
-                $model->$value()->attach($val); 
+                ){
+                    $all_data = request()->all($field);
+                    $model->$value()->detach($all_data);
+                }
+           }
+
+           if(request()->all($relation_with) != "null"){
+                //checking if relation occurs
+                if(DB::table($relation_check)
+                    ->where($field_lower, request()->all($relation_with[0]))
+                    ->where($relationship_check, $model_id)
+                    ->count() < 1){
+                    //requesting all data
+                    $val = request()->all($relation_with[0]);
+                    //relation attach
+                    $model->$value()->attach($val); 
+                }
             }
         });
     }
