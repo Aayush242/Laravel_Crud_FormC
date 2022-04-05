@@ -23,6 +23,31 @@
                 @csrf
                 @method('PUT')
                 @include('contact.form')
+
+                @php
+                  $accountr = DB::table('account_contact')->select('account_id')->where('contact_id',$contact->id)->get();
+                @endphp
+    
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Detach Realtion with: </label>
+                    <div class="col-sm-5">
+                        <select name="relation_with"> 
+                            <option value="null">None</option>
+                            @foreach ($accountr as $account )
+                            @php
+                                 $accounta = DB::table('accounts')->select('f_name')->where('id',$account->account_id)->get();
+                            @endphp
+                                <option value="{{$account->account_id}}">{{$accounta}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 my-2">
+                    <!-- <button type="submit" class="btn btn-primary ml-3">Submit</button> -->            
+                    {!!Form::submit('Submit' , ['class'=>'btn btn-primary ml-3']);!!}
+                </div>
                 {!! Form::close() !!}
             <!-- </form> -->
         </div>

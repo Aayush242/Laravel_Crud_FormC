@@ -34,16 +34,17 @@
                     <label for="exampleFormControlSelect1">Relation with: </label>
                     <div class="col-sm-5">
                         <select name="Account_id"> 
+                            <option value="null">None</option>
                             @foreach ($accounts as $account )
                                 <option value="{{$val=$account->id}}">{{$account->f_name}}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
-                    
+{{--                     
                     <div class="col-xs-12 col-sm-12 col-md-12 my-2">
                         <!-- <button type="submit" class="btn btn-primary ml-3">Submit</button> -->
                        
                         {!!Form::submit('Submit' , ['class'=>'btn btn-primary ml-3']);!!}
-                    </div>
+                    </div> --}}
 </div>

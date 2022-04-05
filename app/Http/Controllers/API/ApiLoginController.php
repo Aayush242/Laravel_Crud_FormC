@@ -24,10 +24,10 @@ class ApiLoginController extends Controller
             'email'=>$request->email,
             'password'=>bcrypt($request->password)
         ]);
-        $access_token_example = $user->createToken('NewTokenRegister')->access_token;
+        // $access_token_example = $user->createToken('NewTokenRegister')->access_token;
         //return the access token we generated in the above step
-        $response =['token' => $access_token_example];
-        return response($access_token_example, 200);
+        $response =['user_Data' => $user];
+        return response($response, 200);
     }
 
     /**
@@ -58,4 +58,12 @@ class ApiLoginController extends Controller
         //returns details
         return response()->json(['authenticated-user' => auth()->user()], 200);
     }
+
+    public function logout(Request $request){
+        $token = $request->user()->token();
+        $token->revoke();
+        $response = ['message' => 'You have been Logout'];
+        return response($response, 200);
+    }
 }
+

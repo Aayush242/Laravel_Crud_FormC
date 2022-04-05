@@ -21,6 +21,14 @@
                 {!!Form::open(['route' => 'contact.store'] , ['method'=>'POST' , 'enctype'=>'multipart/form-data'])!!}
                 @csrf
                 @include('contact.form')
+                <div class="col-xs-12 col-sm-12 col-md-12 my-2">
+                    <div class="d-none">
+                    <select name="abc" ><option value="null">None</option></select>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 my-2">
+                    <!-- <button type="submit" class="btn btn-primary ml-3">Submit</button> -->            
+                    {!!Form::submit('Submit' , ['class'=>'btn btn-primary ml-3']);!!}
+                </div>
                 {!! Form::close() !!}
             <!-- </form> -->
 @endsection
