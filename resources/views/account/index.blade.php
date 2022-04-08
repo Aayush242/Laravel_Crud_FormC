@@ -17,6 +17,10 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="pull-right mb-2">
+                    <a class="btn btn-success" href="Account/layout"> New Layout </a>
+                 </div>
         
             @if ($message = Session::get('success'))
                 <div class="alert alert-success">

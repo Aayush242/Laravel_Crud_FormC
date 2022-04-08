@@ -28,7 +28,7 @@ Route::post('/delete', [SetDataController::class, 'destroy']);
 Route::get('/show', [SetDataController::class, 'show']);
 Route::post('/update2', [SetDataController::class, 'update2']);
 Route::get('/index', [SetDataController::class, 'index']);
-Route::post('logout',[ApiLoginController::class,'logout']);
+Route::post('/logout',[ApiLoginController::class,'logout']);
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

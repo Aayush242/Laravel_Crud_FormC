@@ -48,6 +48,10 @@ class AccountController extends Controller
         return view('account.create');
     }
 
+    public function layout(){
+        return view('account.layout');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -153,4 +157,5 @@ class AccountController extends Controller
         return redirect()->route('account.index')->with('Success','Details has been deleted successfully');
     
     }
+
 }

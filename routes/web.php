@@ -38,6 +38,8 @@ Route::resource('profile',UserController::class)->middleware('auth');
 Route::get('login/{provider}',[SocialController::class, 'redirect'] );
 Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
 
+Route::get('Account/layout', [AccountController::class, 'layout']);
+
 // Route::resource('contact', function (){
     
 //     $accounts = Account::with('contacts')->first();

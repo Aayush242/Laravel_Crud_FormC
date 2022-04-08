@@ -22,13 +22,16 @@ trait Relation{
 
             // dd(request()->all());
             //data of the selected field
-            $fieldarr = array_keys(request()->all()); 
+            
+            $fieldarry = (request()->all());
+            $fieldarr = array_keys(request()->all());
+            $fieldarr = array_keys($fieldarry['input_request']); 
+
             $relation_with = array_slice($fieldarr, -2, 1);
             // dd($relation_with);
             // dd($relation_with);
             $field = last($fieldarr);
-            $relation_name = trim($relation_with[0], "_id");
-            
+            $relation_name = trim($relation_with[0], "_id");            
             $field_lower = Str::lower($relation_with[0]);
 
             // dd($field_lower);
@@ -47,6 +50,7 @@ trait Relation{
                 ){
                     $all_data = request()->all($field);
                     $model->$value()->detach($all_data);
+
                 }
            }
 
